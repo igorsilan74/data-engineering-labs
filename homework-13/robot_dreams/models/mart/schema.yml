@@ -1,0 +1,19 @@
+
+version: 2
+
+models:
+  - name: mart_player_profiles_female
+    description: "Female players profile"
+    columns:
+      - name: player_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+
+  - name: mart_player_profiles_male
+    description: "Male players profile"
+    columns:
+      - name: player_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
