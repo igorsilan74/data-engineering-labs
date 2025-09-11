@@ -1,0 +1,67 @@
+
+version: 2
+
+models:
+  - name: int_players_female
+    description: "Female players"
+    columns:
+      - name: player_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+      - name: gender
+        description: "Player's gender"
+        tests:
+          - accepted_values:
+              values: ['female']
+      - name: wage_eur
+        description: "Player wage"
+        tests:
+          - not_excede_value:
+              arguments:
+                column_name: wage_eur
+          
+          
+  - name: int_players_male
+    description: "Male players"
+    columns:
+      - name: player_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+      - name: gender
+        description: "Player's gender"
+        tests:
+          - accepted_values:
+              values: ['male']
+      - name: wage_eur
+        description: "Player wage"
+        tests:
+          - not_excede_value:
+              arguments:
+                column_name: wage_eur
+
+  - name: int_team_profiles_female
+    description: "Female teams"
+    columns:
+      - name: team_rate
+        description: "Team rate"
+        tests:
+          - in_range_team_rate:
+              arguments:
+                column_name: team_rate
+                min_value: 40
+                max_value: 100
+
+  - name: int_team_profiles_male
+    description: "Male teams"
+    columns:
+      - name: team_rate
+        description: "Team rate"
+        tests:
+          - in_range_team_rate:
+              arguments:
+                column_name: team_rate
+                min_value: 40
+                max_value: 100
+
